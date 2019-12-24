@@ -2,7 +2,7 @@ package referencetype;
 
 public class ArrayInArrayExample {
 	public static void main(String[] args) {
-		int[][] intAry = new int[5][4];
+		int[][] intAry = new int[5][5];
 		
 //		intAry[0][0] = 1;
 //		intAry[0][1] = 2;
@@ -12,6 +12,7 @@ public class ArrayInArrayExample {
 //		intAry[1][0] = 5;
 //		intAry[1][1] = 6;
 //		intAry[1][2] = 7;
+	
 //		intAry[1][3] = 8;
 		
 		int num=1;
