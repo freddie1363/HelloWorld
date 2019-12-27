@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class BankApplication {
 	private static Account[] accountArray = new Account[100];
-	private static Scanner scanner = new Scanner(System.in);
+	private static Scanner scn = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		boolean run = true;
@@ -14,7 +14,8 @@ public class BankApplication {
 			System.out.println("------------------------------------------");
 			System.out.println("선택>");
 
-			int selectNo = scanner.nextInt();
+			int selectNo = scn.nextInt();
+			scn.nextLine();
 
 			if (selectNo == 1) {
 				createAccount();
@@ -37,37 +38,74 @@ public class BankApplication {
 	}
 
 	// 계좌생성하기
-	private static void createAccount() {
-				
+	static void createAccount() {
+		System.out.println("계좌번호 입력:");
+		String ano = scn.nextLine();
+		System.out.println("사용자 입력:");
+		String owner = scn.nextLine();
+		System.out.println("금액입력:");
+		int balance = scn.nextInt();
+
+		Account acnt = new Account(ano, owner, balance);
+
+		for (int i = 0; i < accountArray.length; i++) {
+			if (accountArray[i] == null) {
+				accountArray[i] = acnt;
+				System.out.println("결과 : 계좌가 생성되었습니다.");
+				break;
+
+			}
+		}
 
 	}
 
 	// 계좌목록보기
-	private static void accountList() {
-		
+	static void accountList() {
+		for (Account acnt : accountArray) {
+			if (acnt != null) {
+				System.out.println(acnt);
+			}
+		}
 
 	}
 
 	// 예금하기
-	private static void deposit() {
-		
+	static void deposit() {
+		System.out.println("조회할 계좌 입력: ");
+		String ano = scn.nextLine();
+		System.out.println("입금할 금액 입력: ");
+		int amount = scn.nextInt();
+		Account accnt = findAccount(ano);
+		int balance = accnt.getBalance();
+		accnt.setBalance(balance + amount);
 
 	}
 
 	// 출금하기
-	private static void withdraw() {
-		
+	static void withdraw() {
+		System.out.println("조회할 계좌 입력: ");
+		String ano = scn.nextLine();
+		System.out.println("출금할 금액 입력: ");
+		int amount = scn.nextInt();
+		Account accnt = findAccount(ano);
+		int balance = accnt.getBalance();
+		accnt.setBalance(balance - amount);
 
 	}
-	
-	//Account 배열에서 ano와 동일한 Account 객체 찾기
-	//private static Account findAccount(String ano) {
-		
-		
-		
-	}
-	
 
-	
+	// Account 배열에서 ano와 동일한 Account 객체 찾기
+	static Account findAccount(String ano) {
+		Account accnt = null;
+		for (Account acnt : accountArray) {
+			if (acnt != null) { // null여부를 체크.
+				if (ano.equals(acnt.getAno())) {
+					accnt = acnt;
+					break;
+				}
+			}
+		}
+		return accnt;
+
+	}
 
 }
