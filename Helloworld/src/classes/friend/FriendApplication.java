@@ -6,7 +6,10 @@ import classes.Account;
 
 
 public class FriendApplication {
-	private static Friend[] accountArray = new Friend[100];
+	private static Friend[] fArray = new Friend[100];
+	private static UnivFriend[] univArray = new UnivFriend[100];
+	private static ComFriend[] comArray = new ComFriend[100];
+	
 	private static Scanner scn = new Scanner(System.in);
 
 	public static void main(String[] args) {
@@ -49,14 +52,14 @@ public class FriendApplication {
 			System.out.println("이름 입력:");
 			String name = scn.nextLine();
 			System.out.println("연락처 입력:");
-			int phone = scn.nextLine();
+			int phone = scn.nextInt();
 			System.out.println("학교 입력:");
-			String univ = scn.nextInt();
+			String  = scn.nextLine();
 			System.out.println("전공 입력:");
 			String major = scn.nextLine();
 			
 
-			Account acnt = new Account(ano, owner, balance);
+			Friend friend = new Friend(name, univ);
 
 			for (int i = 0; i < accountArray.length; i++) {
 				if (accountArray[i] == null) {

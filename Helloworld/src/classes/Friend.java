@@ -3,6 +3,10 @@ package classes;
 public class Friend {
 	private String name;
 	private String phone;
+	
+	public Friend() {
+	
+	}
 
 	public Friend(String name, String phone) {
 		super();
@@ -32,7 +36,7 @@ public class Friend {
 		
 	}
 	
-	public void introduce() {
+	public void Stringroduce() {
 		System.out.println("이름은: " + name + " 연락처는: " + phone);
 	}
 
